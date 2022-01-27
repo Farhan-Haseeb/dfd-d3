@@ -1,46 +1,54 @@
-# Boilerplate
+# Data Flow Diagram using d3 in React
 
-Basic Structure for React Application.
+The repo contains simple react app. We are using d3js to crete a DFD.
+Create a div in App.js and create a ref using React.createRef and pass it in div ref attribute.
 
-## Install dependencies
 
+`const ref = React.createRef();`
+
+Import d3. Use d3 selector to create svg inside the div
 ```
-npm install
-```
-
-## Start App
-
-```
-npm run start
-```
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-Any lint errors will be visible in the console.
-
-## Build Bundle
-
-```
-npm run build
+`import * as d3 from 'd3';`
+let svg = d3.select(ref.current)
+    .append('svg')
+    .attr('width', '100%')
+    .attr('height', '100%');
 ```
 
-## Environment Configurations
-### Development env variables
-- Create `.env` file in root directory
-- Added required env variables; must be all caps in snake_case and starts with `REACT_APP_` e.g `REACT_APP_BRAND_NAME=productbox`.
+Creating a g to group objects `let group = svg.append('g');` 
 
-### Production env variables
-- Define all required envs in remote as per requirement.
+The below code adds a rectangle in `g` with fill color
+```
+    group
+        .append('rect')
+        .attr('rx', '30') //To round the corners
+        .attr('ry', '30') //To round the corners
+        .attr('x', 100) // The start point (origin) of the the rectangle on x axis
+        .attr('y', 400) // The start point (origin) of the the rectangle on y axis
+        .style('width', 120) 
+        .style('height', 120)
+        .style('fill', '#e07110');
+```
+The tricker part is to adust lines. Once again add `g` to group lines. 
+```
+const lineGroup = group.append('g');
+// Lines 
+        // Horizontal line
+    const lineGroup = group.append('g');
+    lineGroup.append("line")
+    .attr("x1", 150) // start point on x axis
+    .attr("y1", 200) // start point on y axis
+    .attr("x2", 400) // end point on x axis
+    .attr("y2", 200) // end point on y axis
+    .attr("stroke-width", 2) // width of line
+    .attr("stroke", "black"); // color
 
-## API requests with Axios
-- An axios configuration has been placed with basic configs and headers, this will be used in every API call with axios.
-- Every response will be handled with a success and error handler.
-- Success handler is being used as a default `.then` and will deconstruct data from response.
-- Error handler is being used as a default `.catch`, it will out the error as `console.error`, this is according to the requirements.
-- Default error handler will be skipped for request containing `errorHandle = false` in the config.
-
-## Contributing
-- We use `sass` as our styles compiler.
-- Bootstrap is used for its styled components and existing styles.
-- Resources(Images, Icons and Fonts) have been added to Assets directory. All assets must be placed in their respective directories.
+        // Vertical line
+    lineGroup.append("line")
+    .attr("x1", 150)
+    .attr("y1", 400)
+    .attr("x2", 150)
+    .attr("y2", 200)
+    .attr("stroke-width", 2)
+    .attr("stroke", "black");
+```

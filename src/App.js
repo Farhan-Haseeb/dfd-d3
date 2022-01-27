@@ -4,7 +4,6 @@ import * as d3 from 'd3';
 const App = () => {
     const ref = React.createRef();
     React.useEffect(() => {
-        console.log('My ref', ref);
         let svg = d3.select(ref.current).append('svg').attr('width', '100%').attr('height', '100%');
         let group = svg.append('g');
         group
