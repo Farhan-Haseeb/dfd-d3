@@ -17,51 +17,20 @@ const App = () => {
             .style('fill', '#e07110');
 
         group.append('text').attr('x', 120).attr('y', 535).attr('font-size', 14).text('k8s source');
-        // Lines 
-          // Horizontal line
+        // Lines
+        // Horizontal line
         const lineGroup = group.append('g');
-        lineGroup.append("line")
-        .attr("x1", 150)
-        .attr("y1", 200)
-        .attr("x2", 400)
-        .attr("y2", 200)
-        .attr("stroke-width", 2)
-        .attr("stroke", "black");
+        lineGroup.append('line').attr('x1', 150).attr('y1', 200).attr('x2', 400).attr('y2', 200).attr('stroke-width', 2).attr('stroke', 'black');
         // Vertical line
-        lineGroup.append("line")
-        .attr("x1", 150)
-        .attr("y1", 400)
-        .attr("x2", 150)
-        .attr("y2", 200)
-        .attr("stroke-width", 2)
-        .attr("stroke", "black");
+        lineGroup.append('line').attr('x1', 150).attr('y1', 400).attr('x2', 150).attr('y2', 200).attr('stroke-width', 2).attr('stroke', 'black');
 
         const lineGroup2 = group.append('g');
         // Line 2
-        lineGroup2.append("line")
-        .attr("x1", 150)
-        .attr("y1", 700)
-        .attr("x2", 400)
-        .attr("y2", 700)
-        .attr("stroke-width", 2)
-        .attr("stroke", "black");
+        lineGroup2.append('line').attr('x1', 150).attr('y1', 700).attr('x2', 400).attr('y2', 700).attr('stroke-width', 2).attr('stroke', 'black');
         // Vertical line
-        lineGroup2.append("line")
-        .attr("x1", 150)
-        .attr("y1", 700)
-        .attr("x2", 150)
-        .attr("y2", 550)
-        .attr("stroke-width", 2)
-        .attr("stroke", "black");
+        lineGroup2.append('line').attr('x1', 150).attr('y1', 700).attr('x2', 150).attr('y2', 550).attr('stroke-width', 2).attr('stroke', 'black');
 
-        lineGroup2.append("line")
-        .attr("x1", 220)
-        .attr("y1", 450)
-        .attr("x2", 400)
-        .attr("y2", 450)
-        .attr("stroke-width", 2)
-        .attr("stroke", "black");
-
+        lineGroup2.append('line').attr('x1', 220).attr('y1', 450).attr('x2', 400).attr('y2', 450).attr('stroke-width', 2).attr('stroke', 'black');
 
         // Line ends
         //
@@ -75,7 +44,22 @@ const App = () => {
             .style('height', 120)
             .style('fill', '#50942e');
 
-        group.append('text').attr('x', 1320).attr('y', 335).attr('font-size', 14).text('event store');
+        group.append('text').attr('x', 1340).attr('y', 335).attr('font-size', 14).text('event store');
+        lineGroup2.append('line').attr('x1', 1200).attr('y1', 230).attr('x2', 1300).attr('y2', 230).attr('stroke-width', 2).attr('stroke', 'black');
+        lineGroup2.append('line').attr('x1', 1200).attr('y1', 300).attr('x2', 1300).attr('y2', 300).attr('stroke-width', 2).attr('stroke', 'black');
+
+        group
+            .append('rect')
+            .attr('rx', '30') //To round the corners
+            .attr('ry', '30') //To round the corners
+            .attr('x', 1300)
+            .attr('y', 500)
+            .style('width', 120)
+            .style('height', 120)
+            .style('fill', '#4763e5');
+        group.append('text').attr('x', 1340).attr('y', 630).attr('font-size', 14).text('analytics');
+        lineGroup2.append('line').attr('x1', 1200).attr('y1', 530).attr('x2', 1300).attr('y2', 530).attr('stroke-width', 2).attr('stroke', 'black');
+        lineGroup2.append('line').attr('x1', 1200).attr('y1', 600).attr('x2', 1300).attr('y2', 600).attr('stroke-width', 2).attr('stroke', 'black');
 
         const eventFlowGroup = svg.append('g');
         eventFlowGroup
@@ -107,6 +91,56 @@ const App = () => {
 
         // Left Side of => Event Workers
         eventFlowGroup.append('text').attr('x', 375).attr('y', 190).attr('font-size', 14).text('Event Workers');
+
+        // Lines
+        eventFlowGroup
+            .append('line')
+            .attr('x1', 520)
+            .attr('y1', 450)
+            .attr('x2', 1000)
+            .attr('y2', 450)
+            .attr('stroke-width', 2)
+            .attr('stroke', 'black');
+
+        eventFlowGroup.append('line').attr('x1', 500).attr('y1', 250).attr('x2', 750).attr('y2', 250).attr('stroke-width', 2).attr('stroke', 'black');
+
+        eventFlowGroup.append('line').attr('x1', 750).attr('y1', 250).attr('x2', 750).attr('y2', 400).attr('stroke-width', 2).attr('stroke', 'black');
+
+        // Bottom lines
+        eventFlowGroup.append('line').attr('x1', 500).attr('y1', 700).attr('x2', 750).attr('y2', 700).attr('stroke-width', 2).attr('stroke', 'black');
+        eventFlowGroup.append('line').attr('x1', 750).attr('y1', 540).attr('x2', 750).attr('y2', 700).attr('stroke-width', 2).attr('stroke', 'black');
+
+        // Right side lines
+        eventFlowGroup
+            .append('line')
+            .attr('x1', 800)
+            .attr('y1', 250)
+            .attr('x2', 1020)
+            .attr('y2', 250)
+            .attr('stroke-width', 2)
+            .attr('stroke', 'black');
+
+        eventFlowGroup.append('line').attr('x1', 800).attr('y1', 250).attr('x2', 800).attr('y2', 400).attr('stroke-width', 2).attr('stroke', 'black');
+
+        // Bottom lines
+        eventFlowGroup
+            .append('line')
+            .attr('x1', 800)
+            .attr('y1', 700)
+            .attr('x2', 1020)
+            .attr('y2', 700)
+            .attr('stroke-width', 2)
+            .attr('stroke', 'black');
+
+        eventFlowGroup
+            .append('line')
+            .attr('x1', 800)
+            .attr('y1', 540)
+            .attr('x2', 800)
+            .attr('y2', 700)
+            .attr('stroke-width', 2)
+            .attr('stroke', 'black');
+        // Lines end
 
         eventFlowGroup
             .append('rect')
@@ -142,13 +176,13 @@ const App = () => {
         eventFlowGroup.append('text').attr('x', 415).attr('y', 735).attr('font-size', 14).text('worker3');
 
         // Mid Section
-        eventFlowGroup.append('text').attr('x', 730).attr('y', 500).attr('font-size', 14).text('event queue');
+        eventFlowGroup.append('text').attr('x', 740).attr('y', 530).attr('font-size', 14).text('event queue');
         eventFlowGroup
             .append('rect')
             .attr('rx', '30') //To round the corners
             .attr('ry', '30') //To round the corners
             .attr('x', 700)
-            .attr('y', 360)
+            .attr('y', 400)
             .style('width', '9%')
             .style('height', 120)
             .style('fill', '#e03675');
